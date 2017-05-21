@@ -18,7 +18,7 @@ function vehicleController() {
     self.options=['New','Used','Certified'];	
 
     self.searchVehicle="";
-    self.jsonTitle="JSON format";
+    self.jsonTitle="Json format";
 
     self.errorMsg="";
     self.displayJson=false;
@@ -79,7 +79,7 @@ function vehicleController() {
     self.showJson=function(){
     	self.displayJson=!self.displayJson;
     	self.jsonTable=self.displayJson?'TABLE':'JSON';
-    	self.jsonTitle=self.displayJson?'JSON format':'TABLE format';
+    	self.jsonTitle=self.displayJson?'Table format':'Json format';
     };
 
     self.searchData=function(searchText){
