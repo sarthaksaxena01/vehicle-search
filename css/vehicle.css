@@ -1,0 +1,93 @@
+
+            .container{
+                margin-top: 4%;
+            }
+            .input-data{
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid rgba(204, 0, 0, 0.25);
+            }
+            .search-row{
+                background-color:yellow;    
+            }
+
+            .well{
+                height: 175px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+
+            .labels{
+                 display: block;
+            }
+
+
+            .display-json{
+                    border: 1px solid #ddd;
+                    margin-top: -20px;
+                    padding: 20px;
+                    margin-bottom: 10px;
+            }
+
+            select{
+                width: 280px;
+                padding: 6px;
+                margin-top: 6px;
+                background-color: white;
+                height: 36px;
+            }
+
+
+            input{
+                width: 280px;
+                padding: 10px;
+                margin-top: 5px;
+                border-radius: 8px;
+                border-style: solid;
+                height: 40px;
+                border-width: 1px;
+                border-color: rgb(169, 169, 169);
+            }
+            input:focus{
+                outline:none;
+            }
+            .addButton{
+               margin-left: 15px;
+               padding: 2px 15px;
+            }
+            .search-vehicle{
+                float: right;
+                margin-top: 10px;
+                display: inline-block;
+            }
+            .searchIcon{
+                margin-left: -25px;
+            }
+            .searchInput{
+                width:342px;
+            }
+
+            .table{
+                margin-top: -20px;
+            }
+
+            .convertJson{
+                float: right;
+            }
+
+            button[disabled]{
+                cursor:not-allowed;
+            }
+
+            .error-msg{
+                display: inline-block;
+                margin-top: 2%;
+                margin-left: 42%;
+                color: red;
+            }
+
+            .headers{
+                font-size:22px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }

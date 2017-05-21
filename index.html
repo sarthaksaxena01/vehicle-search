@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+    <head>
+
+        <title>Vehice Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/vehicle.css">
+
+    </head>
+
+    <body ng-app="vehicleDashboard">
+        <div class="container">
+        <br />
+        <div ng-controller="vehicleController as ctrl">
+
+            <div class="headers">Vehicle Search</div>
+           
+           <div class="well">
+                <div class="row input-data">
+                    <div class="col-md-4 columns">
+                        <div class="labels">Type</div> <select ng-model="ctrl.data.type" ng-options="opt for opt in ctrl.options">
+                             <option disabled selected value="">Select a type</option>      
+                        </select>
+                    </div>
+                    <div class="col-md-4 columns">
+                        <div class="labels">Make</div> <div><input type="textbox" ng-model="ctrl.data.make"/></div>
+                    </div>
+                    <div class="col-md-4 columns">
+                        <div class="labels">Model</div> 
+                        <input type="textbox" ng-model="ctrl.data.model"/>
+                        <button class="button btn-primary addButton" ng-click="ctrl.insertData(ctrl.data.type,ctrl.data.make,ctrl.data.model)">+</button>
+                    </div>
+                   
+                  </div>
+                  <div class="horizontal"></div>
+                     
+                    <div class="error-msg" ng-if="ctrl.errorMsg">{{ctrl.errorMsg}}</div>
+                    <div class="search-vehicle">
+                        <input class="searchInput" type="search" placeholder="Search vehicle" name="searchData" ng-model="ctrl.searchVehicle" ng-keyup="ctrl.searchData(ctrl.searchVehicle)"><span class="glyphicon glyphicon-search searchIcon"></span></input>
+                    </div>
+
+              </div>
+                
+                <table class="table table-bordered" ng-show="ctrl.displayJson==false">
+                    <tr ng-repeat="data in ctrl.jsonData" ng-class="{'search-row':data.search==true}">
+                        <td>{{data.type}}</td>   <td>{{data.make}}</td>   <td>{{data.model}}</td>
+                    </tr>
+                </table>
+
+                <div class="display-json" ng-show="ctrl.displayJson==true">
+                 {{ctrl.jsonShow}} </div>
+             
+
+            <div class="convertJson">
+                <button class="button btn-primary jsonButton" ng-disabled="ctrl.jsonData.length==0" ng-class="{'notAllowed':ctrl.jsonData.length==0}"ng-click="ctrl.showJson()">{{ctrl.jsonTable}}</button>
+            </div>
+
+        </div>
+        </div>
+    </body>
+    <script src="js/vendor.bundle.js"></script>
+    <script src="js/app.bundle.js"></script>
+</html>

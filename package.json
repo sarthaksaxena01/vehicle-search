@@ -1,0 +1,19 @@
+{
+  "name": "assignment-vehicle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
+    "server": "live-server --port=9066 --entry-file=index.html"
+  },
+  "keywords": [],
+  "author": "Sarthak Saxena <sarthaksaxena.ss1992@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "webpack": "^1.12.14",
+   "live-server": "^1.2.0"
+  }
+}
