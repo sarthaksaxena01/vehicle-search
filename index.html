@@ -31,31 +31,32 @@
                     <div class="col-md-4 columns">
                         <div class="labels">Model</div> 
                         <input type="textbox" ng-model="ctrl.data.model"/>
-                        <button class="button btn-primary addButton" ng-click="ctrl.insertData(ctrl.data.type,ctrl.data.make,ctrl.data.model)">+</button>
+                        <button class="button btn-primary addButton" title="Insert a vehicle" ng-click="ctrl.insertData(ctrl.data.type,ctrl.data.make,ctrl.data.model)">+</button>
                     </div>
                    
                   </div>
                   <div class="horizontal"></div>
                      
-                    <div class="error-msg" ng-if="ctrl.errorMsg">{{ctrl.errorMsg}}</div>
+                    <div class="error-msg" ng-if="ctrl.errorMsg" ng-bind="ctrl.errorMsg"></div>
                     <div class="search-vehicle">
                         <input class="searchInput" type="search" placeholder="Search vehicle" name="searchData" ng-model="ctrl.searchVehicle" ng-keyup="ctrl.searchData(ctrl.searchVehicle)"><span class="glyphicon glyphicon-search searchIcon"></span></input>
                     </div>
 
               </div>
                 
-                <table class="table table-bordered" ng-show="ctrl.displayJson==false">
+                <table class="table table-bordered ng-cloak" ng-show="ctrl.displayJson==false">
                     <tr ng-repeat="data in ctrl.jsonData" ng-class="{'search-row':data.search==true}">
-                        <td>{{data.type}}</td>   <td>{{data.make}}</td>   <td>{{data.model}}</td>
+                        <td ng-bind="data.type"></td>   <td ng-bind="data.make"></td>   <td ng-bind="data.model"></td>
                     </tr>
                 </table>
 
-                <div class="display-json" ng-show="ctrl.displayJson==true">
-                 {{ctrl.jsonShow}} </div>
+                <div class="display-json ng-cloak" ng-show="ctrl.displayJson==true">{{ctrl.jsonShow}}
+                 </div>
+                
              
 
             <div class="convertJson">
-                <button class="button btn-primary jsonButton" ng-disabled="ctrl.jsonData.length==0" ng-class="{'notAllowed':ctrl.jsonData.length==0}"ng-click="ctrl.showJson()">{{ctrl.jsonTable}}</button>
+                <button class="button btn-primary jsonButton" title="{{ctrl.jsonTitle}}" ng-disabled="ctrl.jsonData.length==0" ng-class="{'notAllowed':ctrl.jsonData.length==0}"ng-click="ctrl.showJson()" ng-bind="ctrl.jsonTable"></button>
             </div>
 
         </div>

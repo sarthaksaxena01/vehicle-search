@@ -1,26 +1,25 @@
-webpackJsonp([0],{
-
-/***/ 0:
+webpackJsonp([0],[
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	angular.module('vehicleDashboard', []);
 
-	__webpack_require__(7);
+	__webpack_require__(1);
 
 /***/ }),
-
-/***/ 7:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var angular = __webpack_require__(2);
 
-	angular.module('vehicleDashboard').controller('vehicleController', __webpack_require__(10));
+	angular.module('vehicleDashboard').controller('vehicleController', __webpack_require__(4));
 
 /***/ }),
-
-/***/ 10:
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -43,6 +42,7 @@ webpackJsonp([0],{
 	    self.options=['New','Used','Certified'];	
 
 	    self.searchVehicle="";
+	    self.jsonTitle="JSON format";
 
 	    self.errorMsg="";
 	    self.displayJson=false;
@@ -92,7 +92,7 @@ webpackJsonp([0],{
 		    		make:makeNew,
 		    		model:modelNew
 		    	});
-		    	
+
 	    	}
 
 
@@ -103,14 +103,17 @@ webpackJsonp([0],{
 	    self.showJson=function(){
 	    	self.displayJson=!self.displayJson;
 	    	self.jsonTable=self.displayJson?'TABLE':'JSON';
+	    	self.jsonTitle=self.displayJson?'JSON format':'TABLE format';
 	    };
 
 	    self.searchData=function(searchText){
 	    	
 	    		if(searchText.length>=3){
 		    		self.jsonData.map(function(data,index,arr){
-		    			if(data.type.indexOf(searchText)>-1 || data.make.indexOf(searchText)>-1 || data.model.indexOf(searchText)>-1){
+		    			if(data.type.toLowerCase().indexOf(searchText.toLowerCase())>-1 || data.make.toLowerCase().indexOf(searchText.toLowerCase())>-1 || data.model.toLowerCase().indexOf(searchText.toLowerCase())>-1){
 		    				data.search=true;
+		    			}else{
+		    				data.search=false;
 		    			}
 		    		});
 		    	}else{
@@ -132,5 +135,4 @@ webpackJsonp([0],{
 
 
 /***/ })
-
-});
+]);

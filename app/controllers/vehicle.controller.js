@@ -18,6 +18,7 @@ function vehicleController() {
     self.options=['New','Used','Certified'];	
 
     self.searchVehicle="";
+    self.jsonTitle="JSON format";
 
     self.errorMsg="";
     self.displayJson=false;
@@ -67,7 +68,7 @@ function vehicleController() {
 	    		make:makeNew,
 	    		model:modelNew
 	    	});
-	    	
+
     	}
 
 
@@ -78,14 +79,17 @@ function vehicleController() {
     self.showJson=function(){
     	self.displayJson=!self.displayJson;
     	self.jsonTable=self.displayJson?'TABLE':'JSON';
+    	self.jsonTitle=self.displayJson?'JSON format':'TABLE format';
     };
 
     self.searchData=function(searchText){
     	
     		if(searchText.length>=3){
 	    		self.jsonData.map(function(data,index,arr){
-	    			if(data.type.indexOf(searchText)>-1 || data.make.indexOf(searchText)>-1 || data.model.indexOf(searchText)>-1){
+	    			if(data.type.toLowerCase().indexOf(searchText.toLowerCase())>-1 || data.make.toLowerCase().indexOf(searchText.toLowerCase())>-1 || data.model.toLowerCase().indexOf(searchText.toLowerCase())>-1){
 	    				data.search=true;
+	    			}else{
+	    				data.search=false;
 	    			}
 	    		});
 	    	}else{

@@ -20,6 +20,7 @@
                  display: block;
             }
 
+            .ng-cloak { display:none; }
 
             .display-json{
                     border: 1px solid #ddd;
@@ -58,9 +59,11 @@
                 float: right;
                 margin-top: 10px;
                 display: inline-block;
+                margin-right: 1%;
             }
             .searchIcon{
                 margin-left: -25px;
+                cursor: pointer;
             }
             .searchInput{
                 width:342px;
